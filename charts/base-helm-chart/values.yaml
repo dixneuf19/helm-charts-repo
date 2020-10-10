@@ -93,10 +93,7 @@ configmap: {}
 secrets:
   - name: mysecret  # name of the secret
     # 'key' to select in the secret.
-    # If set to '*', takes all the values
     key: db_password
     alias: DB_PASSWORD  # alias to the secret key. Default to secret key
   - name: mysecret
     key: SECRET_ENV
-  - name: othersecret
-    key: "*"

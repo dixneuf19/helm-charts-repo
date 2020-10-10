@@ -44,8 +44,6 @@ A Helm chart for Kubernetes
 | secrets[0].name | string | `"mysecret"` |  |
 | secrets[1].key | string | `"SECRET_ENV"` |  |
 | secrets[1].name | string | `"mysecret"` |  |
-| secrets[2].key | string | `"*"` |  |
-| secrets[2].name | string | `"othersecret"` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |

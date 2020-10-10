@@ -52,25 +52,17 @@ spec:
             []
           {{- else }}
             {{- range .Values.secrets }}
-              {{- if eq .key "*" | not }}
           - name: {{ .alias | default .key }}
             valueFrom:
               secretKeyRef:
                 name: {{ .name }}
                 key: {{ .key }}
-              {{- end }}
             {{- end }}
           {{- end }}
           envFrom:
           - configMapRef:
               name: {{ include "base-helm-chart.fullname" . }}
               optional: false
-          {{- range .Values.secrets }}
-            {{- if eq .key "*"}}
-          - secretKeyRef:
-              name: {{ .name }}
-            {{- end }}
-          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
