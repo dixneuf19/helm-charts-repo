@@ -8,7 +8,7 @@ image:
   repository: nginx
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1"
 
 container:
   port: 80
@@ -90,10 +90,4 @@ affinity: {}
 
 configmap: {}
 
-secrets:
-  - name: mysecret  # name of the secret
-    # 'key' to select in the secret.
-    key: db_password
-    alias: DB_PASSWORD  # alias to the secret key. Default to secret key
-  - name: mysecret
-    key: SECRET_ENV
+secrets: []
