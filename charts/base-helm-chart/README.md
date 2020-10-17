@@ -39,11 +39,7 @@ A Helm chart for Kubernetes
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
 | resources | object | `{}` |  |
-| secrets[0].alias | string | `"DB_PASSWORD"` |  |
-| secrets[0].key | string | `"db_password"` |  |
-| secrets[0].name | string | `"mysecret"` |  |
-| secrets[1].key | string | `"SECRET_ENV"` |  |
-| secrets[1].name | string | `"mysecret"` |  |
+| secrets | list | `[]` |  |
 | securityContext | object | `{}` |  |
 | service.port | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
