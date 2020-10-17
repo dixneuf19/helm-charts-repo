@@ -41,7 +41,9 @@ A Helm chart for Kubernetes
 | resources | object | `{}` |  |
 | secrets | list | `[]` |  |
 | securityContext | object | `{}` |  |
+| service.name | string | `"http"` |  |
 | service.port | int | `80` |  |
+| service.protocol | string | `"TCP"` |  |
 | service.type | string | `"ClusterIP"` |  |
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
