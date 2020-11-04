@@ -33,18 +33,26 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.container.port }}
           ports:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
+            {{- if .Values.container.probe }}
+              {{- if .Values.container.probe.liveness }}
           livenessProbe:
             httpGet:
               path: {{ .Values.container.probe.liveness.path }}
               port: http
+              {{- end }}
+              {{- if .Values.container.probe.readiness }}
           readinessProbe:
             httpGet:
               path: {{ .Values.container.probe.readiness.path }}
               port: http
+              {{- end }}
+            {{- end }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env: 
