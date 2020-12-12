@@ -3,6 +3,18 @@ entries:
   base-helm-chart:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2020-12-12T16:05:56.246927317Z"
+    description: A Helm chart for Kubernetes
+    digest: af9f80e76b7858fb85be0aa2dcb4643337998fee347cbf00f42bd9bf0ac741a0
+    maintainers:
+    - name: dixneuf19
+    name: base-helm-chart
+    type: application
+    urls:
+    - https://github.com/dixneuf19/helm-charts-repo/releases/download/base-helm-chart-0.3.0/base-helm-chart-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2020-11-04T08:51:31.745473426Z"
     description: A Helm chart for Kubernetes
     digest: 6fdb4c489f360dcd04a0d12a879c7ba3d082c0203e39bccaec9bc74027f709d9
