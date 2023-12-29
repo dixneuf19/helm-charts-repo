@@ -12,6 +12,7 @@ image:
 
 container:
   port: 80
+  noProbes: false  # only use when your app does not support liveness/readiness probes at all
   probe:
     liveness:
       path: /

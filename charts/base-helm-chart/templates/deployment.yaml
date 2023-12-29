@@ -38,7 +38,7 @@ spec:
             - name: http
               containerPort: {{ .Values.container.port }}
               protocol: TCP
-            {{- if .Values.container.probe }}
+            {{- if and .Values.container.probe (not .Values.container.noProbes) }}
               {{- if .Values.container.probe.liveness }}
           livenessProbe:
             httpGet:
