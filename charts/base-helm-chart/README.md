@@ -1,6 +1,6 @@
 # base-helm-chart
 
-![Version: 0.3.1](https://img.shields.io/badge/Version-0.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.4.0](https://img.shields.io/badge/Version-0.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -21,8 +21,11 @@ A Helm chart for Kubernetes
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | configmap | object | `{}` |  |
 | container.port | int | `80` |  |
+| container.noProbes | bool | `false` | only use when your app does not support liveness/readiness probes at all |
 | container.probe.liveness.path | string | `"/"` |  |
 | container.probe.readiness.path | string | `"/"` |  |
+| container.probe.startup.path | string | unset | optional startup probe, rendered only when set |
+| container.probe.&lt;probe&gt;.initialDelaySeconds, periodSeconds, timeoutSeconds, successThreshold, failureThreshold | int | unset | optional timing for any probe, rendered only when set |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.repository | string | `"nginx"` |  |

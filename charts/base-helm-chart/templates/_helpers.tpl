@@ -82,3 +82,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Optional probe timing fields, rendered only when set
+*/}}
+{{- define "base-helm-chart.probeTiming" -}}
+{{- range $field := list "initialDelaySeconds" "periodSeconds" "timeoutSeconds" "successThreshold" "failureThreshold" }}
+{{- with index $ $field }}
+{{ $field }}: {{ . }}
+{{- end }}
+{{- end }}
+{{- end }}
