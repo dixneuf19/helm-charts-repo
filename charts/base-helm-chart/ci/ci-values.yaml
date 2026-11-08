@@ -17,6 +17,10 @@ container:
       path: /
     readiness:
       path: /
+    startup:
+      path: /
+      periodSeconds: 2
+      failureThreshold: 30
 
 imagePullSecrets: []
 nameOverride: ""

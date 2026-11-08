@@ -39,17 +39,32 @@ spec:
               containerPort: {{ .Values.container.port }}
               protocol: TCP
             {{- if and .Values.container.probe (not .Values.container.noProbes) }}
+              {{- if .Values.container.probe.startup }}
+          startupProbe:
+            httpGet:
+              path: {{ .Values.container.probe.startup.path }}
+              port: http
+            {{- with include "base-helm-chart.probeTiming" .Values.container.probe.startup | trim }}
+            {{- . | nindent 12 }}
+            {{- end }}
+              {{- end }}
               {{- if .Values.container.probe.liveness }}
           livenessProbe:
             httpGet:
               path: {{ .Values.container.probe.liveness.path }}
               port: http
+            {{- with include "base-helm-chart.probeTiming" .Values.container.probe.liveness | trim }}
+            {{- . | nindent 12 }}
+            {{- end }}
               {{- end }}
               {{- if .Values.container.probe.readiness }}
           readinessProbe:
             httpGet:
               path: {{ .Values.container.probe.readiness.path }}
               port: http
+            {{- with include "base-helm-chart.probeTiming" .Values.container.probe.readiness | trim }}
+            {{- . | nindent 12 }}
+            {{- end }}
               {{- end }}
             {{- end }}
           {{- end }}

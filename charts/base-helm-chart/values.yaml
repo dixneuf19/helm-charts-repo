@@ -18,6 +18,8 @@ container:
       path: /
     readiness:
       path: /
+    # startup:  # optional, rendered only when set
+    #   path: /
 
 imagePullSecrets: []
 nameOverride: ""
